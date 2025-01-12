@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&family=Lato:wght@400;700&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +11,17 @@ button {
     border: none;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -146,13 +156,14 @@ header {
 .advantages__card {
     background-color: #e8e8e8;
     color: #2a2a2a;
-    margin-top: 20px;
     border-radius: 10px;
     padding: 20px;
+    width: auto !important;
 }
 
 .advantages__card h3 {
     color: #0078d4;
+    margin-bottom: 10px;
 }
 
 .arrow-container {
@@ -421,12 +432,25 @@ button:disabled {
     overflow: hidden;
     width: 23%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
+    min-height: 150px;
 }
 
-.card:hover {
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover{
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-image {
+    transform: scale(1.2) translateY(-20px);
+
 }
 
 .card-image {
@@ -481,7 +505,7 @@ button:disabled {
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    height: 300px;
+    min-height: 180px;
     width: 220px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -554,9 +578,9 @@ button:disabled {
 }
 
 .slider-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: absolute; /* Оставляем абсолютное позиционирование */
+    top: 45%;
+    transform: translateY(-55%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
@@ -565,14 +589,10 @@ button:disabled {
     font-size: 20px;
     border-radius: 50%;
     transition: background-color 0.3s ease;
-    display: flex; /* Используем flexbox */
-    justify-content: center; /* Горизонтальное выравнивание */
-    align-items: center; /* Вертикальное выравнивание */
-}
-
-
-.slider-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; /* Обеспечиваем, чтобы стрелочки были выше слайдера */
 }
 
 .slider-button.prev {
@@ -583,24 +603,9 @@ button:disabled {
     right: 10px;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .slider-container {
-        padding: 0;
-    }
-    .slider-wrapper {
-        justify-content: flex-start;
-    }
-    .slide {
-        flex: 0 0 100%;
-        margin-right: 0;
-    }
 
-    .slider-button {
-        padding: 8px 12px;
-        font-size: 16px;
-    }
-
+.slider-button.next {
+    right: 10px;
 }
 
 .feedback {
@@ -677,7 +682,7 @@ input[type="email"], input[type="text"], input[type="tel"] {
 textarea {
     width: 100%;
     resize: none;
-    height: 284px; /* Устанавливаем высоту */
+    height: 202px;
 }
 .button-container {
     display: flex;
@@ -706,54 +711,113 @@ textarea {
     width: 100vw;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
+.feedback-call {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color: #0078d4;
+}
 
-    .feedback-form {
-        gap: 15px;
-    }
-    .form-inputs {
-        flex-direction: column;
-    }
+/* Footer */
+.footer {
+    background-color: #003366;
+    color: white;
+    padding: 30px 0;
+}
 
-    .form-left {
-        gap: 10px;
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-section {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.footer-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    text-align: right;
+}
+
+.footer-icons {
+    margin-top: 10px;
+}
+
+.footer-icon {
+    margin: 0 15px;
+}
+
+.footer-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+}
+
+
+/* Общие корректировки */
+@media (max-width: 1260px) {
+    .container {
+        max-width: 1024px;
     }
-    .form-right {
+}
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 768px;
+    }
+    .cards {
+        align-items: center;
         margin-bottom: 10px;
     }
-
-}
-
-
-/* Мобильная адаптивность */
-@media (max-width: 768px) {
-    .reviews-container {
-        flex-direction: column;
-        align-items: center;
+    .services .card {
+        width: 45%;
     }
-
-    .review-card {
-        width: 80%;
-        margin-bottom: 20px;
+    .advantages__card {
+        min-width: 200px !important;
     }
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 865px) {
+    /* Корректируем контейнер */
+    .container {
+        max-width: 100%;
+        padding: 0 15px; /* Добавляем отступы по бокам */
+    }
 
-
-
-@media (max-width: 720px) {
+    /* Хедер */
     .header__burger {
-        display: block;
-    }
-
-    /* На мобильных устройствах скрываем обычное меню */
-    .header__nav.active {
-        right: 0; /* Меню появляется */
-    }
-
-    .header-overlay.active {
-        display: block; /* Оверлей появляется */
+        display: block; /* Показываем бургер меню */
     }
     .header__nav {
         position: fixed;
@@ -769,12 +833,151 @@ textarea {
         justify-content: normal;
         align-items: normal;
     }
+    .header__nav.active {
+        right: 0; /* Меню появляется */
+    }
+    .header-overlay.active {
+        display: block; /* Оверлей появляется */
+    }
+
     .header__nav button{
         width: fit-content;
         margin-left: 20px;
     }
-}
+    .header-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 5;
+    }
 
+    /* Адаптация преимуществ */
+    .advantages {
+        position: static; /* Убираем абсолютное позиционирование */
+        transform: none; /* Сбрасываем трансформацию */
+        margin-top: 20px;
+        left: 0; /* Убираем смещение влево */
+        padding: 0 15px;
+        max-width: 100%; /* Занимает всю ширину */
+        display: flex;  /* Используем flexbox */
+        flex-wrap: wrap;  /* Разрешаем перенос на новую строку */
+        justify-content: space-between; /* Равномерно распределяем между */
+        gap: 15px; /* Отступы между карточками */
+    }
+    .advantages__card {
+        width: calc(33.33% - 10px) !important; /* Делим на 3 колонки (с учетом отступов) */
+        margin-bottom: 10px;
+    }
+
+    /* Для совсем маленьких экранов делаем карточки на всю ширину */
+    @media (max-width: 500px) {
+        .advantages__card {
+            width: 100% !important;
+        }
+        .cards {
+            flex-direction: column;
+            align-items: center;
+        }
+        .card {
+            width: 100% !important;
+        }
+    }
+    .arrow-container {
+        top: 95%; /* Ниже */
+        left: 50%; /* Центрирование */
+        transform: translateX(-50%);
+    }
+    /*Секция почему именно мы*/
+    .services {
+        gap: 10px;
+    }
+
+    .services .card {
+        margin-bottom: 15px;
+    }
+    /* Секция с картами */
+    .cards {
+        display: flex;
+        flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+        justify-content: space-between; /* Выравниваем элементы по горизонтали */
+        gap: 10px;
+    }
+
+    .card {
+        width: calc(50% - 10px);
+        margin-bottom: 10px;
+    }
+
+    /* Секция поиска */
+    .search input, .search button {
+        width: 100%;
+    }
+    .autocomplete {
+        width: 100%
+    }
+
+    /* Секция с отзывами */
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    /* Слайдер */
+    .slider-container {
+        padding: 0;
+    }
+    .slider-wrapper {
+        justify-content: flex-start;
+    }
+    .slide {
+        flex: 0 0 100%;
+        margin-right: 0;
+    }
+
+    .slider-button {
+        padding: 8px 12px;
+        font-size: 16px;
+    }
+
+    /* Секция обратной связи */
+    .feedback-form {
+        gap: 15px;
+    }
+    .form-inputs {
+        flex-direction: column;
+    }
+    .form-left {
+        gap: 10px;
+    }
+    .form-right {
+        margin-bottom: 10px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-section {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
+    .footer-social {
+        text-align: center;
+    }
+    /* Стили для попапов */
+    .popup-content {
+        width: 90%;
+    }
+}
 #progress-bar {
     position: fixed;
     top: 0;
