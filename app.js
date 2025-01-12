@@ -167,36 +167,16 @@ document.addEventListener('DOMContentLoaded', function () {
 const progressBar = document.getElementById('progress-bar');
 
 function updateProgressBar() {
-    // Высота всего документа
     const documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    // Текущее положение прокрутки
     const scrollPosition = window.scrollY;
-    // Расчет процента прокрутки
     const scrollPercent = (scrollPosition / documentHeight) * 100;
 
-    // Устанавливаем ширину прогресс-бара
     progressBar.style.width = scrollPercent + '%';
 }
 
-function initMap() {
-    var airportLocation = { lat: 40.9760, lng: 29.3099 }; // Координаты аэропорта Сабиха Гёкчен
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: airportLocation
-    });
-
-    var marker = new google.maps.Marker({
-        position: airportLocation,
-        map: map,
-        title: 'Аэропорт Сабиха Гёкчен'
-    });
-}
-
-// Добавляем обработчик события прокрутки
 window.addEventListener('scroll', updateProgressBar);
 
-  function autocomplete(input, arr) {
+function autocomplete(input, arr) {
     let currentFocus;
     input.addEventListener("input", function () {
         const value = this.value;
@@ -207,14 +187,12 @@ window.addEventListener('scroll', updateProgressBar);
         list.setAttribute("id", this.id + "-autocomplete-list");
         list.setAttribute("class", "autocomplete-items");
         this.parentNode.appendChild(list);
-        
-        // Фильтрация городов
-        const filteredCities = arr.filter(city => 
+
+        const filteredCities = arr.filter(city =>
             city.name.toUpperCase().includes(value.toUpperCase()) ||
             city.country.toUpperCase().includes(value.toUpperCase())
         );
 
-        // Ограничиваем количество городов до 5
         const limitedCities = filteredCities.slice(0, 5);
 
         limitedCities.forEach(city => {
@@ -308,7 +286,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Открытие и закрытие попапов
 const loginBtn = document.getElementById('loginBtn');
 const registerBtn = document.getElementById('registerBtn');
 const loginPopup = document.getElementById('loginPopup');
@@ -316,7 +293,6 @@ const registerPopup = document.getElementById('registerPopup');
 const loginClose = document.getElementById('loginClose');
 const registerClose = document.getElementById('registerClose');
 
-// Открыть попап для входа
 loginBtn.addEventListener('click', () => {
     loginPopup.classList.add('show');
     setTimeout(() => {
@@ -324,7 +300,6 @@ loginBtn.addEventListener('click', () => {
     }, 50);
 });
 
-// Открыть попап для регистрации
 registerBtn.addEventListener('click', () => {
     registerPopup.classList.add('show');
     setTimeout(() => {
@@ -332,7 +307,6 @@ registerBtn.addEventListener('click', () => {
     }, 50);
 });
 
-// Закрыть попап при клике на крестик
 loginClose.addEventListener('click', () => {
     loginPopup.querySelector('.popup-content').classList.remove('show');
     setTimeout(() => {
@@ -340,7 +314,6 @@ loginClose.addEventListener('click', () => {
     }, 300);
 });
 
-// Закрыть попап при клике на крестик
 registerClose.addEventListener('click', () => {
     registerPopup.querySelector('.popup-content').classList.remove('show');
     setTimeout(() => {
@@ -348,7 +321,6 @@ registerClose.addEventListener('click', () => {
     }, 300);
 });
 
-// Закрытие попапа при клике на оверлей
 loginPopup.querySelector('.overlay').addEventListener('click', () => {
     loginPopup.querySelector('.popup-content').classList.remove('show');
     setTimeout(() => {
@@ -374,51 +346,48 @@ loginPassword.addEventListener('input', validateLoginPassword);
 loginClose.addEventListener('click', resetLoginForm);
 
 function validateLoginEmail() {
-  if (!loginEmail.value || !/\S+@\S+\.\S+/.test(loginEmail.value)) {
-    loginEmail.classList.remove('valid');
-    loginEmail.classList.add('invalid');
-    loginEmailError.textContent = 'Lütfen geçerli bir e-posta adresi girin.';
-  } else {
-    loginEmail.classList.remove('invalid');
-    loginEmail.classList.add('valid');
-    loginEmailError.textContent = '';
-  }
+    if (!loginEmail.value || !/\S+@\S+\.\S+/.test(loginEmail.value)) {
+        loginEmail.classList.remove('valid');
+        loginEmail.classList.add('invalid');
+        loginEmailError.textContent = 'Lütfen geçerli bir e-posta adresi girin.';
+    } else {
+        loginEmail.classList.remove('invalid');
+        loginEmail.classList.add('valid');
+        loginEmailError.textContent = '';
+    }
 
-  toggleLoginSubmit();
+    toggleLoginSubmit();
 }
 
 function validateLoginPassword() {
-  if (!loginPassword.value || loginPassword.value.length < 6) {
-    loginPassword.classList.remove('valid');
-    loginPassword.classList.add('invalid');
-    loginPasswordError.textContent = 'Şifre en az 6 karakter olmalıdır.';
-  } else {
-    loginPassword.classList.remove('invalid');
-    loginPassword.classList.add('valid');
-    loginPasswordError.textContent = '';
-  }
+    if (!loginPassword.value || loginPassword.value.length < 6) {
+        loginPassword.classList.remove('valid');
+        loginPassword.classList.add('invalid');
+        loginPasswordError.textContent = 'Şifre en az 6 karakter olmalıdır.';
+    } else {
+        loginPassword.classList.remove('invalid');
+        loginPassword.classList.add('valid');
+        loginPasswordError.textContent = '';
+    }
 
-  toggleLoginSubmit();
+    toggleLoginSubmit();
 }
 
 function toggleLoginSubmit() {
-  const isValid = loginEmail.classList.contains('valid') && loginPassword.classList.contains('valid');
-  loginSubmit.disabled = !isValid;
+    const isValid = loginEmail.classList.contains('valid') && loginPassword.classList.contains('valid');
+    loginSubmit.disabled = !isValid;
 }
 
 function resetLoginForm() {
-  loginEmail.classList.remove('valid', 'invalid');
-  loginPassword.classList.remove('valid', 'invalid');
-  loginEmailError.textContent = '';
-  loginPasswordError.textContent = '';
-  loginSubmit.disabled = true;
-
-  // Очистка содержимого полей ввода
-  loginEmail.value = '';
-  loginPassword.value = '';
+    loginEmail.classList.remove('valid', 'invalid');
+    loginPassword.classList.remove('valid', 'invalid');
+    loginEmailError.textContent = '';
+    loginPasswordError.textContent = '';
+    loginSubmit.disabled = true;
+    loginEmail.value = '';
+    loginPassword.value = '';
 }
 
-// Валидация для регистрации
 const registerName = document.getElementById('registerName');
 const registerEmail = document.getElementById('registerEmail');
 const registerPassword = document.getElementById('registerPassword');
@@ -433,63 +402,86 @@ registerPassword.addEventListener('input', validateRegisterPassword);
 registerClose.addEventListener('click', resetRegisterForm);
 
 function validateRegisterName() {
-  if (!registerName.value) {
-    registerName.classList.remove('valid');
-    registerName.classList.add('invalid');
-    registerNameError.textContent = 'Ad alanı boş olamaz.';
-  } else {
-    registerName.classList.remove('invalid');
-    registerName.classList.add('valid');
-    registerNameError.textContent = '';
-  }
+    if (!registerName.value) {
+        registerName.classList.remove('valid');
+        registerName.classList.add('invalid');
+        registerNameError.textContent = 'Ad alanı boş olamaz.';
+    } else {
+        registerName.classList.remove('invalid');
+        registerName.classList.add('valid');
+        registerNameError.textContent = '';
+    }
 
-  toggleRegisterSubmit();
+    toggleRegisterSubmit();
 }
 
 function validateRegisterEmail() {
-  if (!registerEmail.value || !/\S+@\S+\.\S+/.test(registerEmail.value)) {
-    registerEmail.classList.remove('valid');
-    registerEmail.classList.add('invalid');
-    registerEmailError.textContent = 'Lütfen geçerli bir e-posta adresi girin.';
-  } else {
-    registerEmail.classList.remove('invalid');
-    registerEmail.classList.add('valid');
-    registerEmailError.textContent = '';
-  }
+    if (!registerEmail.value || !/\S+@\S+\.\S+/.test(registerEmail.value)) {
+        registerEmail.classList.remove('valid');
+        registerEmail.classList.add('invalid');
+        registerEmailError.textContent = 'Lütfen geçerli bir e-posta adresi girin.';
+    } else {
+        registerEmail.classList.remove('invalid');
+        registerEmail.classList.add('valid');
+        registerEmailError.textContent = '';
+    }
 
-  toggleRegisterSubmit();
+    toggleRegisterSubmit();
 }
 
 function validateRegisterPassword() {
-  if (!registerPassword.value || registerPassword.value.length < 6) {
-    registerPassword.classList.remove('valid');
-    registerPassword.classList.add('invalid');
-    registerPasswordError.textContent = 'Şifre en az 6 karakter olmalıdır.';
-  } else {
-    registerPassword.classList.remove('invalid');
-    registerPassword.classList.add('valid');
-    registerPasswordError.textContent = '';
-  }
+    if (!registerPassword.value || registerPassword.value.length < 6) {
+        registerPassword.classList.remove('valid');
+        registerPassword.classList.add('invalid');
+        registerPasswordError.textContent = 'Şifre en az 6 karakter olmalıdır.';
+    } else {
+        registerPassword.classList.remove('invalid');
+        registerPassword.classList.add('valid');
+        registerPasswordError.textContent = '';
+    }
 
-  toggleRegisterSubmit();
+    toggleRegisterSubmit();
 }
 
 function toggleRegisterSubmit() {
-  const isValid = registerName.classList.contains('valid') && registerEmail.classList.contains('valid') && registerPassword.classList.contains('valid');
-  registerSubmit.disabled = !isValid;
+    const isValid = registerName.classList.contains('valid') && registerEmail.classList.contains('valid') && registerPassword.classList.contains('valid');
+    registerSubmit.disabled = !isValid;
 }
 
 function resetRegisterForm() {
-  registerName.classList.remove('valid', 'invalid');
-  registerEmail.classList.remove('valid', 'invalid');
-  registerPassword.classList.remove('valid', 'invalid');
-  registerNameError.textContent = '';
-  registerEmailError.textContent = '';
-  registerPasswordError.textContent = '';
-  registerSubmit.disabled = true;
-
-  // Очистка содержимого полей ввода
-  registerName.value = '';
-  registerEmail.value = '';
-  registerPassword.value = '';
+    registerName.classList.remove('valid', 'invalid');
+    registerEmail.classList.remove('valid', 'invalid');
+    registerPassword.classList.remove('valid', 'invalid');
+    registerNameError.textContent = '';
+    registerEmailError.textContent = '';
+    registerPasswordError.textContent = '';
+    registerSubmit.disabled = true;
+    registerName.value = '';
+    registerEmail.value = '';
+    registerPassword.value = '';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navItems = document.querySelectorAll('.header__nav > a, .header__nav > button');
+    const advantageCards = document.querySelectorAll('.advantages__card');
+
+    advantageCards.forEach(card => {
+        card.style.transform = 'translateX(-100px)';
+        card.style.opacity = '0';
+    });
+    gsap.from(navItems, {
+        y: -50,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power3.out'
+    });
+    gsap.to(advantageCards, {
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.2,
+        ease: 'power3.out',
+    });
+});
+
