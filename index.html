@@ -1,41 +1,41 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyHigh Авиалинии</title>
+    <title>SkyHigh Havayolları</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
 <div id="progress-bar"></div>
 <div class="first-page">
     <header>
         <nav class="header__nav">
-            <a href="#">Turkish Airlines ✈️</a>
-
-            <a href="#">Бронирование рейсов</a>
-            <a href="#">Направления</a>
-            <a href="#">Свяжитесь с нами</a>
-            <button id="loginBtn">Войти</button>
-            <button id="registerBtn">Регистрация</button>
+            <a href="#">Türk Hava Yolları ✈️</a>
+            <a href="#booking">Uçuş Rezervasyonu</a>
+            <a href="#recommendations">Rotalar</a>
+            <a href="#feedback">Bize Ulaşın</a>
+            <button id="loginBtn">Giriş Yap</button>
+            <button id="registerBtn">Kayıt Ol</button>
         </nav>
         <div class="header__burger">
             <span></span>
         </div>
         <div class="header-overlay"></div>
     </header>
-    <div class="advantages">
-        <div class="advantages__card">
-            <h3>Комфортные перелёты</h3>
-            <p>Мы обеспечиваем удобные кресла, простор для ног и современные развлечения на борту.</p>
+    <div class="advantages cards">
+        <div class="advantages__card card">
+            <h3>Konforlu Uçuşlar</h3>
+            <p>Rahat koltuklar, geniş bacak mesafesi ve modern uçak içi eğlence imkanları sunuyoruz.</p>
         </div>
-        <div class="advantages__card">
-            <h3>Доступные цены</h3>
-            <p>Предлагаем выгодные тарифы и регулярные акции для путешествий по всему миру.</p>
+        <div class="advantages__card card">
+            <h3>Uygun Fiyatlar</h3>
+            <p>Dünya çapında seyahatler için avantajlı tarifeler ve düzenli kampanyalar sunuyoruz.</p>
         </div>
-        <div class="advantages__card">
-            <h3>Безопасность и надёжность</h3>
-            <p>Наша авиакомпания соблюдает все стандарты безопасности и всегда заботится о пассажирах.</p>
+        <div class="advantages__card card">
+            <h3>Güvenlik ve Güvenilirlik</h3>
+            <p>Havayolu şirketimiz tüm güvenlik standartlarına uyar ve her zaman yolcularını önemser.</p>
         </div>
     </div>
     <div class="arrow-container">
@@ -43,367 +43,358 @@
     </div>
 </div>
 
-<div class="container">
-    <h2 class="title">Почему именно мы?</h2>
+<div class="container" id="booking">
+    <h2 class="title">Neden Biz?</h2>
     <section class="cards services">
         <div class="card">
-            <h3>Комфортные кресла</h3>
-            <p>Дополнительное место для ног и регулируемые кресла для вашего удобства.</p>
+            <h3>Konforlu Koltuklar</h3>
+            <p>Daha fazla bacak mesafesi ve ayarlanabilir koltuklar ile konforunuz için.</p>
         </div>
         <div class="card">
-            <h3>Питание на борту</h3>
-            <p>Свежие и вкусные блюда, разнообразные напитки и индивидуальные варианты на выбор.</p>
+            <h3>Uçak İçi Yemekler</h3>
+            <p>Taze ve lezzetli yemekler, çeşitli içecekler ve kişiye özel seçenekler.</p>
         </div>
         <div class="card">
-            <h3>Развлечения</h3>
-            <p>Смотрите фильмы, слушайте музыку и играйте в игры во время путешествия.</p>
+            <h3>Eğlence İmkanları</h3>
+            <p>Seyahatiniz sırasında film izleyin, müzik dinleyin ve oyun oynayın.</p>
         </div>
         <div class="card">
-            <h3>Точные рейсы</h3>
-            <p>Минимальные задержки и удобное расписание для комфортного планирования вашего времени.</p>
+            <h3>Dakik Uçuşlar</h3>
+            <p>Minimum gecikmeler ve rahat planlama yapabilmeniz için uygun uçuş saatleri.</p>
         </div>
     </section>
 </div>
 
 <section class="search">
-    <h2 class="title">Найдите ваш рейс</h2>
+    <h2 class="title">Uçuşunuzu Bulun</h2>
     <div class="autocomplete">
-        <input id="from" type="text" placeholder="Откуда">
+        <input id="from" type="text" placeholder="Nereden">
     </div>
     <div class="autocomplete">
-        <input id="to" type="text" placeholder="Куда">
+        <input id="to" type="text" placeholder="Nereye">
     </div>
     <input type="date">
-    <button>Поиск</button>
+    <button>Ara</button>
 </section>
 
-<section class="recommendations">
+<section class="recommendations" id="recommendations">
     <div class="container">
-        <h2 class="title">Наши рекомендации</h2>
+        <h2 class="title">Önerdiğimiz Rotalar</h2>
         <div class="cards">
             <div class="card">
-                <img src="./img/paris.avif" alt="Париж" class="card-image" />
-                <h3 class="card-title">Париж</h3>
+                <img src="./img/paris.avif" alt="Paris" class="card-image" />
+                <h3 class="card-title">Paris</h3>
             </div>
             <div class="card">
-                <img src="./img/new-york.jpg" alt="Нью-Йорк" class="card-image" />
-                <h3 class="card-title">Нью-Йорк</h3>
+                <img src="./img/new-york.jpg" alt="New York" class="card-image" />
+                <h3 class="card-title">New York</h3>
             </div>
             <div class="card">
-                <img src="./img/tokyo.jpg" alt="Токио" class="card-image" />
-                <h3 class="card-title">Токио</h3>
+                <img src="./img/tokyo.jpg" alt="Tokyo" class="card-image" />
+                <h3 class="card-title">Tokyo</h3>
             </div>
             <div class="card">
-                <img src="./img/london.jpeg" alt="Лондон" class="card-image" />
-                <h3 class="card-title">Лондон</h3>
+                <img src="./img/london.jpeg" alt="Londra" class="card-image" />
+                <h3 class="card-title">Londra</h3>
             </div>
         </div>
     </div>
 </section>
 
-<h2 class="title">Где мы находимся</h2>
-<iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97663.96837585654!2d32.92458540501031!3d40.09773497425504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40820fdad0c982a9%3A0xf13ed2bab75c76d6!2sAnkara%20Esenboga%20Airport!5e0!3m2!1sen!2sua!4v1736520170792!5m2!1sen!2sua" width="600" height="450" style="border:0; margin: 0 0 40px 0; " allowfullscreen=""  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+<div class="map">
+    <h2 class="title">Nerede Bulunuyoruz</h2>
+    <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97663.96837585654!2d32.92458540501031!3d40.09773497425504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40820fdad0c982a9%3A0xf13ed2bab75c76d6!2sAnkara%20Esenboga%20Airport!5e0!3m2!1sen!2sua!4v1736520170792!5m2!1sen!2sua" width="600" height="450" style="border:0; margin: 0 0 40px 0; " allowfullscreen=""  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 
 <section class="reviews">
-    <h2 class="reviews-title">Отзывы наших клиентов</h2>
+    <h2 class="reviews-title">Müşteri Yorumları</h2>
     <div class="slider-container">
         <div class="slider-wrapper">
-            <!-- Карточки отзывов -->
+            <!-- Yorum kartları -->
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk1.jpg" alt="Отзыв 1" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=1" alt="Rastgele Resim 1" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Мехмет Озкан</h3>
+                            <h3 class="review-name">Mehmet Özkan</h3>
                             <div class="review-rating">
                                 <span class="stars">★★★★☆</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Отличное обслуживание, удобные кресла.</p>
-                        <p class="review-cons">Минусы: Задержка рейса.</p>
+                        <p class="review-pros">Artılar: Harika hizmet, rahat koltuklar.</p>
+                        <p class="review-cons">Eksiler: Uçuş gecikmesi.</p>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk2.jpg" alt="Отзыв 2" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=2" alt="Rastgele Resim 2" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Айше Демир</h3>
+                            <h3 class="review-name">Ayşe Demir</h3>
                             <div class="review-rating">
                                 <span class="stars">★★★★★</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Быстрый процесс регистрации, комфортный полет.</p>
-                        <p class="review-cons">Минусы: Нет.</p>
+                        <p class="review-pros">Artılar: Hızlı kayıt süreci, konforlu uçuş.</p>
+                        <p class="review-cons">Eksiler: Yok.</p>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk3.jpg" alt="Отзыв 3" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=3" alt="Rastgele Resim 3" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Кемаль Ялчин</h3>
+                            <h3 class="review-name">Kemal Yalçın</h3>
                             <div class="review-rating">
                                 <span class="stars">★★★☆☆</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Хорошее обслуживание на борту.</p>
-                        <p class="review-cons">Минусы: Неудобные сиденья.</p>
+                        <p class="review-pros">Artılar: İyi servis.</p>
+                        <p class="review-cons">Eksiler: Koltuklar rahat değildi.</p>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk3.jpg" alt="Отзыв 4" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=4" alt="Rastgele Resim 4" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Кемаль Ялчин</h3>
+                            <h3 class="review-name">Elif Korkmaz</h3>
                             <div class="review-rating">
-                                <span class="stars">★★★☆☆</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
+                                <span class="stars">★★★★☆</span>
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Хорошее обслуживание на борту.</p>
-                        <p class="review-cons">Минусы: Неудобные сиденья.</p>
+                        <p class="review-pros">Artılar: Hızlı servis ve güzel yemekler.</p>
+                        <p class="review-cons">Eksiler: Biraz gürültülüydü.</p>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk3.jpg" alt="Отзыв 5" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=5" alt="Rastgele Resim 5" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Кемаль Ялчин</h3>
+                            <h3 class="review-name">Fatma Kaya</h3>
                             <div class="review-rating">
-                                <span class="stars">★★★☆☆</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
+                                <span class="stars">★★★★★</span>
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Хорошее обслуживание на борту.</p>
-                        <p class="review-cons">Минусы: Неудобные сиденья.</p>
+                        <p class="review-pros">Artılar: Mükemmel konfor, hızlı kalkış.</p>
+                        <p class="review-cons">Eksiler: Yok.</p>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk3.jpg" alt="Отзыв 6" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=6" alt="Rastgele Resim 6" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Кемаль Ялчин</h3>
+                            <h3 class="review-name">Ahmet Yılmaz</h3>
                             <div class="review-rating">
                                 <span class="stars">★★★☆☆</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Хорошее обслуживание на борту.</p>
-                        <p class="review-cons">Минусы: Неудобные сиденья.</p>
+                        <p class="review-pros">Artılar: Uçuş süresi kısa.</p>
+                        <p class="review-cons">Eksiler: Koltuklar dar.</p>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk3.jpg" alt="Отзыв 7" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=7" alt="Rastgele Resim 7" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Кемаль Ялчин</h3>
+                            <h3 class="review-name">Osman Aydın</h3>
                             <div class="review-rating">
-                                <span class="stars">★★★☆☆</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
+                                <span class="stars">★★★★☆</span>
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Хорошее обслуживание на борту.</p>
-                        <p class="review-cons">Минусы: Неудобные сиденья.</p>
+                        <p class="review-pros">Artılar: İyi yemek servisi.</p>
+                        <p class="review-cons">Eksiler: Uçuş biraz sallanıyordu.</p>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk3.jpg" alt="Отзыв 8" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=8" alt="Rastgele Resim 8" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Кемаль Ялчин</h3>
+                            <h3 class="review-name">Büşra Akın</h3>
                             <div class="review-rating">
-                                <span class="stars">★★★☆☆</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
+                                <span class="stars">★★★★★</span>
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Хорошее обслуживание на борту.</p>
-                        <p class="review-cons">Минусы: Неудобные сиденья.</p>
+                        <p class="review-pros">Artılar: Hızlı ve güvenli uçuş.</p>
+                        <p class="review-cons">Eksiler: Biraz pahalı.</p>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk3.jpg" alt="Отзыв 9" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=9" alt="Rastgele Resim 9" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Кемаль Ялчин</h3>
+                            <h3 class="review-name">İsmail Çelik</h3>
                             <div class="review-rating">
-                                <span class="stars">★★★☆☆</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
+                                <span class="stars">★★☆☆☆</span>
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Хорошее обслуживание на борту.</p>
-                        <p class="review-cons">Минусы: Неудобные сиденья.</p>
+                        <p class="review-pros">Artılar: Güzel manzara.</p>
+                        <p class="review-cons">Eksiler: Uçuş çok uzun sürdü.</p>
                     </div>
                 </div>
             </div>
             <div class="slide">
                 <div class="review-card">
                     <div class="review-header">
-                        <img src="turk3.jpg" alt="Отзыв 10" class="review-image" />
+                        <img src="https://picsum.photos/200/300?random=10" alt="Rastgele Resim 10" class="review-image">
                         <div class="review-info">
-                            <h3 class="review-name">Кемаль Ялчин</h3>
+                            <h3 class="review-name">Zeynep Şahin</h3>
                             <div class="review-rating">
-                                <span class="stars">★★★☆☆</span>
-                                <img src="star-icon.png" alt="Звезда" class="star-icon" />
+                                <span class="stars">★★★★☆</span>
                             </div>
                         </div>
                     </div>
                     <div class="review-body">
-                        <p class="review-pros">Плюсы: Хорошее обслуживание на борту.</p>
-                        <p class="review-cons">Минусы: Неудобные сиденья.</p>
+                        <p class="review-pros">Artılar: Harika hizmet, rahat koltuklar.</p>
+                        <p class="review-cons">Eksiler: Uçuş biraz geç başladı.</p>
                     </div>
                 </div>
             </div>
-            <!-- Повторите структуру для всех 10 отзывов -->
         </div>
-        <!-- Кнопки навигации -->
-        <button class="slider-button prev" aria-label="Предыдущий слайд">❮</button>
-        <button class="slider-button next" aria-label="Следующий слайд">❯</button>
+        <!-- Navigasyon butonları -->
+        <button class="slider-button prev" aria-label="Önceki slayt">❮</button>
+        <button class="slider-button next" aria-label="Sonraki slayt">❯</button>
     </div>
 </section>
 <div class="feedback-background">
     <div class="container">
-<section class="feedback">
-    <h2>Обратная связь</h2>
-    <div class="feedback-container"> <!-- Обертка для фона -->
-        <form action="#" method="POST" class="feedback-form">
-            <div class="form-inputs">
-                <div class="form-left">
-                    <div class="form-group">
-                        <label for="email">Адрес электронной почты</label>
-                        <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+        <section class="feedback" id="feedback">
+            <h2>Geri Bildirim</h2>
+            <div class="feedback-container">
+                <form action="#" method="POST" class="feedback-form">
+                    <div class="form-inputs">
+                        <div class="form-left">
+                            <div class="form-group">
+                                <label for="email">E-posta Adresi</label>
+                                <input type="email" id="email" name="email" placeholder="E-postanızı girin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="first-name">Ad</label>
+                                <input type="text" id="first-name" name="first-name" placeholder="Adınızı girin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Soyad</label>
+                                <input type="text" id="last-name" name="last-name" placeholder="Soyadınızı girin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Çağrı Merkezi Telefonu</label>
+                                <a href="tel:+312123456" class="feedback-call">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    +312-12-34-56
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-right">
+                            <div class="form-group">
+                                <label for="reason">Başvuru Nedeni</label>
+                                <textarea id="reason" name="reason" placeholder="Sorununuzu veya sorunuzu açıklayın" rows="6" required></textarea>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="first-name">Имя</label>
-                        <input type="text" id="first-name" name="first-name" placeholder="Введите ваше имя" required>
+                    <div class="button-container">
+                        <button type="submit" class="submit-btn">Gönder</button>
                     </div>
-                    <div class="form-group">
-                        <label for="last-name">Фамилия</label>
-                        <input type="text" id="last-name" name="last-name" placeholder="Введите вашу фамилию" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Телефон горячей линии</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" required>
-                    </div>
-                </div>
-                <div class="form-right">
-                    <div class="form-group">
-                        <label for="reason">Причина обращения</label>
-                        <textarea id="reason" name="reason" placeholder="Опишите вашу проблему или вопрос" rows="6" required></textarea>
-                    </div>
-                </div>
+                </form>
             </div>
-            <div class="button-container">
-                <button type="submit" class="submit-btn">Отправить</button>
-            </div>
-        </form>
-    </div>
-</section>
+        </section>
     </div>
 </div>
 
 
 
 
-<footer style="background-color: #003366; color: white; padding: 30px 0;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start;">
-
-        <!-- Левый блок с контактами и услугами -->
-        <div style="flex: 1; padding-right: 50px;">
-            <p style="font-size: 18px; font-weight: bold;">Компания</p>
-            <ul style="list-style: none; padding: 0; margin: 10px 0;">
-                <li><a href="/about" style="color: white; text-decoration: none; font-size: 16px;">О компании</a></li>
-                <li><a href="/services" style="color: white; text-decoration: none; font-size: 16px;">Услуги</a></li>
-                <li><a href="/contact" style="color: white; text-decoration: none; font-size: 16px;">Контакты</a></li>
-                <li><a href="/privacy-policy" style="color: white; text-decoration: none; font-size: 16px;">Политика конфиденциальности</a></li>
+<footer class="footer">
+    <div class="container">
+        <!-- Sol blok, iletişim bilgileri ve hizmetler -->
+        <div class="footer-section">
+            <p class="footer-title">Şirket</p>
+            <ul class="footer-list">
+                <li><a href="/about" class="footer-link">Hakkımızda</a></li>
+                <li><a href="/services" class="footer-link">Hizmetlerimiz</a></li>
+                <li><a href="/contact" class="footer-link">İletişim</a></li>
+                <li><a href="/privacy-policy" class="footer-link">Gizlilik Politikası</a></li>
             </ul>
         </div>
 
-        <!-- Правый блок с социальными сетями -->
-        <div style="flex: 1; text-align: right;">
-            <p style="font-size: 18px; font-weight: bold;">Следите за нами</p>
-            <div style="margin-top: 10px;">
-                <a href="https://facebook.com" style="margin: 0 15px;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 30px; height: 30px;"/>
+        <!-- Sağ blok, sosyal medya -->
+        <div class="footer-section footer-social">
+            <p class="footer-title">Bizi Takip Edin</p>
+            <div class="footer-icons">
+                <a href="https://facebook.com" class="footer-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" />
                 </a>
-                <a href="https://twitter.com" style="margin: 0 15px;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/120px-Logo_of_Twitter.svg.png" alt="Twitter" style="width: 30px; height: 30px;"/>
+                <a href="https://twitter.com" class="footer-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/120px-Logo_of_Twitter.svg.png" alt="Twitter" />
                 </a>
-                <a href="https://instagram.com" style="margin: 0 15px;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; height: 30px;"/>
+                <a href="https://instagram.com" class="footer-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- Нижняя часть футера -->
-    <div style="text-align: center; margin-top: 20px;">
-        <p style="font-size: 14px;">&copy; 2025 Авиакомпания "Ваше имя". Все права защищены.</p>
+    <!-- Alt footer -->
+    <div class="footer-bottom">
+        <p>© 2025 "Adınız" Havayolları. Tüm hakları saklıdır.</p>
     </div>
 </footer>
-
 
 <div id="loginPopup" class="popup">
     <div class="overlay"></div>
     <div class="popup-content">
-        <span id="loginClose" class="close-btn">&times;</span>
-        <h2>Войти</h2>
-        <input id="loginEmail" type="email" placeholder="Электронная почта" />
+        <span id="loginClose" class="close-btn">×</span>
+        <h2>Giriş Yap</h2>
+        <input id="loginEmail" type="email" placeholder="E-posta" />
         <span id="loginEmailError" class="error-text"></span>
-        <input id="loginPassword" type="password" placeholder="Пароль" />
+        <input id="loginPassword" type="password" placeholder="Şifre" />
         <span id="loginPasswordError" class="error-text"></span>
-        <button id="loginSubmit" disabled>Войти</button>
+        <button id="loginSubmit" disabled>Giriş Yap</button>
     </div>
 </div>
 
 <div id="registerPopup" class="popup">
     <div class="overlay"></div>
     <div class="popup-content">
-        <span id="registerClose" class="close-btn">&times;</span>
-        <h2>Регистрация</h2>
-        <input id="registerName" type="text" placeholder="Имя" />
+        <span id="registerClose" class="close-btn">×</span>
+        <h2>Kayıt Ol</h2>
+        <input id="registerName" type="text" placeholder="Ad" />
         <span id="registerNameError" class="error-text"></span>
-        <input id="registerEmail" type="email" placeholder="Электронная почта" />
+        <input id="registerEmail" type="email" placeholder="E-posta" />
         <span id="registerEmailError" class="error-text"></span>
-        <input id="registerPassword" type="password" placeholder="Пароль" />
+        <input id="registerPassword" type="password" placeholder="Şifre" />
         <span id="registerPasswordError" class="error-text"></span>
-        <button id="registerSubmit" disabled>Регистрация</button>
+        <button id="registerSubmit" disabled>Kayıt Ol</button>
     </div>
 </div>
 <script src="app.js"></script>
