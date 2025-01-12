@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyHigh Авиалинии</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+<div id="progress-bar"></div>
+<div class="first-page">
+    <header>
+        <nav class="header__nav">
+            <a href="#">Turkish Airlines ✈️</a>
+
+            <a href="#">Бронирование рейсов</a>
+            <a href="#">Направления</a>
+            <a href="#">Свяжитесь с нами</a>
+            <button id="loginBtn">Войти</button>
+            <button id="registerBtn">Регистрация</button>
+        </nav>
+        <div class="header__burger">
+            <span></span>
+        </div>
+        <div class="header-overlay"></div>
+    </header>
+    <div class="advantages">
+        <div class="advantages__card">
+            <h3>Комфортные перелёты</h3>
+            <p>Мы обеспечиваем удобные кресла, простор для ног и современные развлечения на борту.</p>
+        </div>
+        <div class="advantages__card">
+            <h3>Доступные цены</h3>
+            <p>Предлагаем выгодные тарифы и регулярные акции для путешествий по всему миру.</p>
+        </div>
+        <div class="advantages__card">
+            <h3>Безопасность и надёжность</h3>
+            <p>Наша авиакомпания соблюдает все стандарты безопасности и всегда заботится о пассажирах.</p>
+        </div>
+    </div>
+    <div class="arrow-container">
+        <img src="img/arrow-plane.png" alt="plane">
+    </div>
+</div>
+
+
+<!--<iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97663.96837585654!2d32.92458540501031!3d40.09773497425504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40820fdad0c982a9%3A0xf13ed2bab75c76d6!2sAnkara%20Esenboga%20Airport!5e0!3m2!1sen!2sua!4v1736520170792!5m2!1sen!2sua" width="600" height="450" style="border:0;" allowfullscreen=""  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+ <div class="container">
+     <h2 class="title">Почему именно мы?</h2>
+    <section class="cards services">
+        <div class="card">
+            <h3>Комфортные кресла</h3>
+            <p>Дополнительное место для ног и регулируемые кресла для вашего удобства.</p>
+        </div>
+        <div class="card">
+            <h3>Питание на борту</h3>
+            <p>Свежие и вкусные блюда, разнообразные напитки и индивидуальные варианты на выбор.</p>
+        </div>
+        <div class="card">
+            <h3>Развлечения</h3>
+            <p>Смотрите фильмы, слушайте музыку и играйте в игры во время путешествия.</p>
+        </div>
+        <div class="card">
+            <h3>Точные рейсы</h3>
+            <p>Минимальные задержки и удобное расписание для комфортного планирования вашего времени.</p>
+        </div>
+    </section>
+</div>
+
+<section class="search">
+    <h2 class="title">Найдите ваш рейс</h2>
+    <div class="autocomplete">
+        <input id="from" type="text" placeholder="Откуда">
+    </div>
+    <div class="autocomplete">
+        <input id="to" type="text" placeholder="Куда">
+    </div>
+    <input type="date">
+    <button>Поиск</button>
+</section>
+
+<section class="recommendations">
+    <div class="container">
+        <h2 class="title">Наши рекомендации</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="./img/paris.avif" alt="Париж" class="card-image" />
+                <h3 class="card-title">Париж</h3>
+            </div>
+            <div class="card">
+                <img src="./img/new-york.jpg" alt="Нью-Йорк" class="card-image" />
+                <h3 class="card-title">Нью-Йорк</h3>
+            </div>
+            <div class="card">
+                <img src="./img/tokyo.jpg" alt="Токио" class="card-image" />
+                <h3 class="card-title">Токио</h3>
+            </div>
+            <div class="card">
+                <img src="./img/london.jpeg" alt="Лондон" class="card-image" />
+                <h3 class="card-title">Лондон</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer style="background-color: #003366; color: white; padding: 30px 0;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start;">
+
+        <!-- Левый блок с контактами и услугами -->
+        <div style="flex: 1; padding-right: 50px;">
+            <p style="font-size: 18px; font-weight: bold;">Компания</p>
+            <ul style="list-style: none; padding: 0; margin: 10px 0;">
+                <li><a href="/about" style="color: white; text-decoration: none; font-size: 16px;">О компании</a></li>
+                <li><a href="/services" style="color: white; text-decoration: none; font-size: 16px;">Услуги</a></li>
+                <li><a href="/contact" style="color: white; text-decoration: none; font-size: 16px;">Контакты</a></li>
+                <li><a href="/privacy-policy" style="color: white; text-decoration: none; font-size: 16px;">Политика конфиденциальности</a></li>
+            </ul>
+        </div>
+
+        <!-- Правый блок с социальными сетями -->
+        <div style="flex: 1; text-align: right;">
+            <p style="font-size: 18px; font-weight: bold;">Следите за нами</p>
+            <div style="margin-top: 10px;">
+                <a href="https://facebook.com" style="margin: 0 15px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width: 30px; height: 30px;"/>
+                </a>
+                <a href="https://twitter.com" style="margin: 0 15px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/120px-Logo_of_Twitter.svg.png" alt="Twitter" style="width: 30px; height: 30px;"/>
+                </a>
+                <a href="https://instagram.com" style="margin: 0 15px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width: 30px; height: 30px;"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Нижняя часть футера -->
+    <div style="text-align: center; margin-top: 20px;">
+        <p style="font-size: 14px;">&copy; 2025 Авиакомпания "Ваше имя". Все права защищены.</p>
+    </div>
+</footer>
+
+
+<div id="loginPopup" class="popup">
+    <div class="overlay"></div>
+    <div class="popup-content">
+        <span id="loginClose" class="close-btn">&times;</span>
+        <h2>Войти</h2>
+        <input id="loginEmail" type="email" placeholder="Электронная почта" />
+        <span id="loginEmailError" class="error-text"></span>
+        <input id="loginPassword" type="password" placeholder="Пароль" />
+        <span id="loginPasswordError" class="error-text"></span>
+        <button id="loginSubmit" disabled>Войти</button>
+    </div>
+</div>
+
+<div id="registerPopup" class="popup">
+    <div class="overlay"></div>
+    <div class="popup-content">
+        <span id="registerClose" class="close-btn">&times;</span>
+        <h2>Регистрация</h2>
+        <input id="registerName" type="text" placeholder="Имя" />
+        <span id="registerNameError" class="error-text"></span>
+        <input id="registerEmail" type="email" placeholder="Электронная почта" />
+        <span id="registerEmailError" class="error-text"></span>
+        <input id="registerPassword" type="password" placeholder="Пароль" />
+        <span id="registerPasswordError" class="error-text"></span>
+        <button id="registerSubmit" disabled>Регистрация</button>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

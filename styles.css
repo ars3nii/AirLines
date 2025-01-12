@@ -1,0 +1,485 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.first-page {
+    background: url("img/hero-plane.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+header {
+    background: linear-gradient(90deg, rgba(0, 120, 212, 0.56), rgba(0, 90, 158, 0.6));
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+
+
+header {
+    position: relative;
+}
+
+.header__burger {
+    display: none; /* Скрыто по умолчанию */
+    width: 50px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.header__burger span,
+.header__burger span::before,
+.header__burger span::after {
+    display: block;
+    width: 50px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    transition: 0.3s ease;
+}
+
+.header__burger span::before {
+    content: '';
+    top: 11px;
+}
+
+.header__burger span::after {
+    content: '';
+    bottom: -22px;
+}
+
+.header {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.header__nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.header__nav a:hover {
+    color: #ffcc00;
+}
+
+.header__nav button {
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #0078d4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.header__nav button:hover {
+    background-color: #005a9e;
+}
+
+.header-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.advantages {
+    position: absolute;
+    max-width: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+}
+
+.advantages__card {
+    background-color: #e8e8e8;
+    color: #2a2a2a;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.advantages__card h3 {
+    color: #0078d4;
+}
+
+.arrow-container {
+    position: absolute;
+    top: 90%;
+    right: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: #0078d4;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bounce 2s infinite ease;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+
+.arrow-container img {
+    width: 35px;
+    height: 35px;
+    rotate: 135deg;
+    color: white;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* Стили для попапов */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0; /* Изначально скрыт */
+    transition: opacity 0.3s ease; /* Плавное появление попапа */
+    z-index: 10;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Начальная прозрачность */
+    transition: background-color 0.3s ease; /* Плавное изменение фона */
+}
+
+.popup.show {
+    display: flex;
+    opacity: 1; /* Плавное появление попапа */
+}
+
+.popup.show .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Прозрачность фона при открытии */
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.popup-content.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Стили для полей ввода по умолчанию (синяя обводка) */
+.popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #0078d4; /* Синяя обводка по умолчанию */
+    border-radius: 5px;
+}
+
+/* Стили для кнопки */
+.popup-content button {
+    padding: 10px;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.popup-content button:hover {
+    background-color: #005a9e;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* Стили для текста ошибки */
+.error-text {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Стили для ошибок (красная обводка) */
+input.invalid {
+    border: 1px solid red;
+}
+
+/* Стили для валидных полей (зелёная обводка) */
+input.valid {
+    border: 1px solid green;
+}
+
+/* Стили для кнопки в состоянии disabled */
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.search {
+    text-align: center;
+    padding: 60px 20px;
+}
+.search h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.search input, .search button {
+    padding: 15px;
+    font-size: 1rem;
+    margin: 10px;
+    border: 2px solid #0078d4;
+    border-radius: 5px;
+    outline: none;
+}
+.search input:focus {
+    border-color: #005a9e;
+    box-shadow: 0 0 5px rgba(0, 90, 158, 0.5);
+}
+.search button {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.search button:hover {
+    background-color: #005a9e;
+}
+.autocomplete {
+    position: relative;
+    display: inline-block;
+}
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+    transition: background-color 0.3s ease;
+}
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+.autocomplete-active {
+    background-color: #0078d4 !important;
+    color: white;
+}
+
+.recommendations {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 32px;
+    color: #333;
+    margin: 40px;
+    text-align:center;
+}
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #464646;
+    margin: 20px 0;
+}
+.services .card {
+    width: 23%;
+    padding: 15px 0;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services .card p {
+    margin-inline: 20px;
+}
+
+.services .card h3 {
+    color: #0078d4;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 23%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 20px;
+    color: #333;
+    margin: 25px 0;
+}
+
+
+@media (max-width: 720px) {
+    .header__burger {
+        display: block;
+    }
+
+    /* На мобильных устройствах скрываем обычное меню */
+    .header__nav.active {
+        right: 0; /* Меню появляется */
+    }
+
+    .header-overlay.active {
+        display: block; /* Оверлей появляется */
+    }
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        background-color: #004080;
+        flex-direction: column;
+        padding-top: 60px; 
+        transition: right 0.3s ease;
+        z-index: 10;
+        justify-content: normal;
+        align-items: normal;
+    }
+    .header__nav button{
+        width: fit-content;
+        margin-left: 20px;
+    }
+}
+
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background-color: #3498db;
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
