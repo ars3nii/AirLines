@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jura:wght@300..700&family=Lato:wght@400;700&display=swap');
+/* Загальні стилі */
 * {
     margin: 0;
     padding: 0;
@@ -31,11 +32,18 @@ body {
     background-color: rgba(219, 234, 255, 0.68);
 }
 
+:root {
+    --primary-color: #3992ee;
+    --secondary-color: #005a9e;
+}
+
+/* Контейнер */
 .container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
+/* Перша сторінка */
 .first-page {
     background: url("img/hero-plane.jpg");
     background-size: cover;
@@ -44,7 +52,7 @@ body {
     height: 100vh;
 }
 
-
+/* Шапка сайту */
 header {
     background: linear-gradient(90deg, rgba(0, 120, 212, 0.56), rgba(0, 90, 158, 0.6));
     color: white;
@@ -57,14 +65,13 @@ header h1 {
     font-size: 2.5rem;
 }
 
-
-
 header {
     position: relative;
 }
 
+/* Бургер меню */
 .header__burger {
-    display: none; /* Скрыто по умолчанию */
+    display: none;
     width: 50px;
     height: 30px;
     position: relative;
@@ -99,6 +106,7 @@ header {
     padding: 20px 0;
 }
 
+/* Навігація в шапці */
 .header__nav {
     display: flex;
     justify-content: center;
@@ -124,16 +132,17 @@ header {
     color: white;
     font-size: 1rem;
     font-weight: bold;
-    background-color: #0078d4;
+    background-color: var(--primary-color);
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .header__nav button:hover {
-    background-color: #005a9e;
+    background-color: var(--secondary-color);
 }
 
+/* Оверлей для мобільного меню */
 .header-overlay {
     display: none;
     position: fixed;
@@ -145,6 +154,7 @@ header {
     z-index: 5;
 }
 
+/* Блок переваг */
 .advantages {
     position: absolute;
     max-width: 20%;
@@ -162,19 +172,20 @@ header {
 }
 
 .advantages__card h3 {
-    color: #0078d4;
+    color: var(--primary-color);
     margin-bottom: 10px;
 }
 
+/* Контейнер стрілки */
 .arrow-container {
     position: absolute;
-    top: 90%; /* Расположение на 90% от высоты окна */
-    left: 48%; /* Расположение по центру по горизонтали */
-    transform: translateX(-48%); /* Центрирование по горизонтали и вертикали */
+    top: 90%;
+    left: 48%;
+    transform: translateX(-48%);
     cursor: pointer;
     width: 50px;
     height: 50px;
-    background-color: #0078d4;
+    background-color: var(--primary-color);
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -182,6 +193,7 @@ header {
     animation: bounce 2s infinite ease;
 }
 
+/* Карта */
 .map {
     margin: 100px 0
 }
@@ -210,8 +222,7 @@ header {
     }
 }
 
-
-/* Стили для попапов */
+/* Попапи */
 .popup {
     display: none;
     position: fixed;
@@ -222,8 +233,8 @@ header {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    opacity: 0; /* Изначально скрыт */
-    transition: opacity 0.3s ease; /* Плавное появление попапа */
+    opacity: 0;
+    transition: opacity 0.3s ease;
     z-index: 10;
 }
 
@@ -233,17 +244,17 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0); /* Начальная прозрачность */
-    transition: background-color 0.3s ease; /* Плавное изменение фона */
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.3s ease;
 }
 
 .popup.show {
     display: flex;
-    opacity: 1; /* Плавное появление попапа */
+    opacity: 1;
 }
 
 .popup.show .overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Прозрачность фона при открытии */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popup-content {
@@ -262,19 +273,17 @@ header {
     opacity: 1;
 }
 
-/* Стили для полей ввода по умолчанию (синяя обводка) */
 .popup-content input {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #0078d4; /* Синяя обводка по умолчанию */
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
 }
 
-/* Стили для кнопки */
 .popup-content button {
     padding: 10px;
-    background-color: #0078d4;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     cursor: pointer;
@@ -282,7 +291,7 @@ header {
 }
 
 .popup-content button:hover {
-    background-color: #005a9e;
+    background-color: var(--secondary-color);
 }
 
 .popup-content h2 {
@@ -296,7 +305,7 @@ header {
     cursor: pointer;
 }
 
-/* Стили для текста ошибки */
+/* Текст помилки */
 .error-text {
     color: red;
     font-size: 12px;
@@ -304,22 +313,23 @@ header {
     margin-top: 5px;
 }
 
-/* Стили для ошибок (красная обводка) */
+/* Інпут помилки */
 input.invalid {
     border: 1px solid red;
 }
 
-/* Стили для валидных полей (зелёная обводка) */
+/* Валідний інпут */
 input.valid {
     border: 1px solid green;
 }
 
-/* Стили для кнопки в состоянии disabled */
+/* Заблокована кнопка */
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
+/* Пошук */
 .search {
     text-align: center;
     padding: 60px 20px;
@@ -332,24 +342,25 @@ button:disabled {
     padding: 15px;
     font-size: 1rem;
     margin: 10px;
-    border: 2px solid #0078d4;
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
     outline: none;
 }
 .search input:focus {
-    border-color: #005a9e;
+    border-color: var(--secondary-color);
     box-shadow: 0 0 5px rgba(0, 90, 158, 0.5);
 }
 .search button {
-    background-color: #0078d4;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 .search button:hover {
-    background-color: #005a9e;
+    background-color: var(--secondary-color);
 }
+/* Автозаповнення */
 .autocomplete {
     position: relative;
     display: inline-block;
@@ -379,14 +390,16 @@ button:disabled {
     background-color: #e9e9e9;
 }
 .autocomplete-active {
-    background-color: #0078d4 !important;
+    background-color: var(--primary-color) !important;
     color: white;
 }
 
+/* Рекомендації */
 .recommendations {
     text-align: center;
 }
 
+/* Заголовок */
 .title {
     font-size: 32px;
     color: #333;
@@ -394,6 +407,7 @@ button:disabled {
     text-align:center;
 }
 
+/* Сервіси */
 .services {
     display: flex;
     justify-content: space-between;
@@ -414,11 +428,12 @@ button:disabled {
 }
 
 .services .card h3 {
-    color: #0078d4;
+    color: var(--primary-color);
     font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
+/* Картки */
 .cards {
     display: flex;
     justify-content: space-between;
@@ -465,7 +480,7 @@ button:disabled {
     margin: 25px 0;
 }
 
-/* Основной стиль для секции отзывов */
+/* Відгуки */
 .reviews {
     padding: 60px 20px;
     margin: 30px 0 100px;
@@ -578,7 +593,7 @@ button:disabled {
 }
 
 .slider-button {
-    position: absolute; /* Оставляем абсолютное позиционирование */
+    position: absolute;
     top: 45%;
     transform: translateY(-55%);
     background-color: rgba(0, 0, 0, 0.5);
@@ -592,7 +607,7 @@ button:disabled {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10; /* Обеспечиваем, чтобы стрелочки были выше слайдера */
+    z-index: 10;
 }
 
 .slider-button.prev {
@@ -608,6 +623,7 @@ button:disabled {
     right: 10px;
 }
 
+/* Зворотний зв'язок */
 .feedback {
     margin: 40px auto;
     padding: 20px;
@@ -622,12 +638,11 @@ button:disabled {
     margin-bottom: 100px;
 }
 
-
 .feedback-container {
     width: 100%;
     padding: 20px;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.3); /*Добавил полупрозрачность для лучшего вида*/
+    background: rgba(255, 255, 255, 0.3);
 }
 .feedback h2 {
     text-align: center;
@@ -692,7 +707,7 @@ textarea {
 
 .submit-btn {
     padding: 12px 20px;
-    background-color: #0078d4;
+    background-color:var(--primary-color);
     color: white;
     border: none;
     border-radius: 4px;
@@ -701,7 +716,7 @@ textarea {
 }
 
 .submit-btn:hover {
-    background-color: #005fa3;
+    background-color: var(--secondary-color);
 }
 
 .feedback-background {
@@ -715,12 +730,12 @@ textarea {
     display: flex;
     align-items: center;
     gap: 3px;
-    color: #0078d4;
+    color: var(--primary-color);
 }
 
-/* Footer */
+/* Футер */
 .footer {
-    background-color: #003366;
+    background: linear-gradient(90deg, rgba(0, 120, 212, 0.76), rgba(0, 90, 158, 0.6));
     color: white;
     padding: 30px 0;
 }
@@ -783,8 +798,19 @@ textarea {
     font-size: 14px;
 }
 
+/* Прогрес бар */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background-color: #3498db;
+    z-index: 1000;
+    transition: width 0.1s ease;
+}
 
-/* Общие корректировки */
+/* Адаптивність */
 @media (max-width: 1260px) {
     .container {
         max-width: 1024px;
@@ -807,17 +833,16 @@ textarea {
     }
 }
 
-/* Mobile Responsiveness */
+/* Мобільна адаптивність */
 @media (max-width: 865px) {
-    /* Корректируем контейнер */
     .container {
         max-width: 100%;
-        padding: 0 15px; /* Добавляем отступы по бокам */
+        padding: 0 15px;
     }
 
     /* Хедер */
     .header__burger {
-        display: block; /* Показываем бургер меню */
+        display: block;
     }
     .header__nav {
         position: fixed;
@@ -825,19 +850,19 @@ textarea {
         right: -100%;
         width: 60%;
         height: 100vh;
-        background-color: #004080;
+        background-color: #005a9e;
         flex-direction: column;
         padding-top: 60px;
         transition: right 0.3s ease;
         z-index: 10;
         justify-content: normal;
-        align-items: normal;
+        align-items: flex-start;
     }
     .header__nav.active {
-        right: 0; /* Меню появляется */
+        right: 0;
     }
     .header-overlay.active {
-        display: block; /* Оверлей появляется */
+        display: block;
     }
 
     .header__nav button{
@@ -855,43 +880,30 @@ textarea {
         z-index: 5;
     }
 
-    /* Адаптация преимуществ */
+    /* Переваги */
     .advantages {
-        position: static; /* Убираем абсолютное позиционирование */
-        transform: none; /* Сбрасываем трансформацию */
+        position: static;
+        transform: none;
         margin-top: 20px;
-        left: 0; /* Убираем смещение влево */
+        left: 0;
         padding: 0 15px;
-        max-width: 100%; /* Занимает всю ширину */
-        display: flex;  /* Используем flexbox */
-        flex-wrap: wrap;  /* Разрешаем перенос на новую строку */
-        justify-content: space-between; /* Равномерно распределяем между */
-        gap: 15px; /* Отступы между карточками */
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 15px;
     }
     .advantages__card {
-        width: calc(33.33% - 10px) !important; /* Делим на 3 колонки (с учетом отступов) */
+        width: calc(33.33% - 10px) !important;
         margin-bottom: 10px;
     }
 
-    /* Для совсем маленьких экранов делаем карточки на всю ширину */
-    @media (max-width: 500px) {
-        .advantages__card {
-            width: 100% !important;
-        }
-        .cards {
-            flex-direction: column;
-            align-items: center;
-        }
-        .card {
-            width: 100% !important;
-        }
-    }
     .arrow-container {
-        top: 95%; /* Ниже */
-        left: 50%; /* Центрирование */
+        top: 95%;
+        left: 50%;
         transform: translateX(-50%);
     }
-    /*Секция почему именно мы*/
+    /* Секція "Чому саме ми"*/
     .services {
         gap: 10px;
     }
@@ -899,11 +911,11 @@ textarea {
     .services .card {
         margin-bottom: 15px;
     }
-    /* Секция с картами */
+    /* Секція з картами */
     .cards {
         display: flex;
-        flex-wrap: wrap; /* Разрешаем перенос на новую строку */
-        justify-content: space-between; /* Выравниваем элементы по горизонтали */
+        flex-wrap: wrap;
+        justify-content: space-between;
         gap: 10px;
     }
 
@@ -912,7 +924,7 @@ textarea {
         margin-bottom: 10px;
     }
 
-    /* Секция поиска */
+    /* Секція пошуку */
     .search input, .search button {
         width: 100%;
     }
@@ -920,7 +932,7 @@ textarea {
         width: 100%
     }
 
-    /* Секция с отзывами */
+    /* Секція відгуків */
     .reviews-container {
         flex-direction: column;
         align-items: center;
@@ -948,7 +960,7 @@ textarea {
         font-size: 16px;
     }
 
-    /* Секция обратной связи */
+    /* Секція зворотного зв'язку */
     .feedback-form {
         gap: 15px;
     }
@@ -973,18 +985,20 @@ textarea {
     .footer-social {
         text-align: center;
     }
-    /* Стили для попапов */
+    /* Стилі для попапів */
     .popup-content {
         width: 90%;
     }
 }
-#progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 5px;
-    background-color: #3498db;
-    z-index: 1000;
-    transition: width 0.1s ease;
+@media (max-width: 500px) {
+    .advantages__card {
+        width: 100% !important;
+    }
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 100% !important;
+    }
 }
